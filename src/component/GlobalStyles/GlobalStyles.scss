@@ -2,19 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
 
 :root {
+  // color
   --primary: #fe2c55;
+
+  // header height (line: 2 - at: src/component/Layout/component/Header/Header.module.scss)
+  --default-layout-header-height: 60px;
+
+  /* container width 
+     - line: 8 , at: src/component/Layout/DefaultLayout/DefaultLayout.module.scss
+     - line: 11 , at: src/component/Layout/component/Header/Header.module.scss
+  */
+  --default-layout-width: 1150px;
 }
 
+//* reset CSS
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+//* init font-size
 html {
   font-size: 62.5%;
 }
 
+//*
 body {
   font-family: 'IBM Plex Sans, Arial, Tahoma', sans-serif;
   font-size: 1.6rem;
