@@ -49,3 +49,18 @@ a[href] {
   color: var(--text-color);
   text-decoration: none;
 }
+
+// Custom tippy tooltips
+body {
+  .tippy-box {
+    // font-size: 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    line-height: 2.2rem;
+    background-color: #545454;
+  }
+
+  .tippy-arrow {
+    color: #545454;
+  }
+}

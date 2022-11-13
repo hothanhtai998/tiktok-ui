@@ -89,22 +89,40 @@
       background-color: rgba(22, 24, 35, 0.06);
     }
   }
-
-  .clear,
-  .loading {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: calc(var(--search-button-width) + 16px);
-    color: rgba(22, 24, 35, 0.4);
-  }
-  .loading {
-    display: none;
-  }
 }
 
+.clear,
+.loading {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--search-button-width) + 16px);
+  color: rgba(22, 24, 35, 0.4);
+}
+.loading {
+  display: none;
+}
+
+// action
 .action {
   display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  font-size: 2rem;
+  padding: 4px 12px;
+  color: #161823;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 12px;
 }
 
 .more-btn {
