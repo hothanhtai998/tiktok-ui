@@ -1,15 +1,15 @@
 .wrapper {
-  border: 1px solid rgba(22, 24, 35, 0.12);
-  border-radius: 4px;
   min-width: 110px;
   font-weight: 600;
   font-size: 1.6rem;
-  padding: 7px 16px 8px;
+  font-family: 'ProximaNova', sans-serif;
   text-align: center;
   background-color: var(--white);
-  cursor: pointer;
   border: 1px solid transparent;
+  border-radius: 4px;
   user-select: none;
+  padding: 7px 16px 8px;
+  cursor: pointer;
 
   + .wrapper {
     margin-left: 8px;
