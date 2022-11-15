@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 // import css
 import styles from './Header.module.scss';
@@ -31,6 +32,7 @@ import Button from '~/component/Button';
 import Menu from '~/component/Popper/Menu';
 import Image from '~/component/Image';
 import Search from '~/component/Layout/Search';
+import routesConfig from '~/config/routes';
 
 const MENU_ITEMS = [
   {
@@ -107,7 +109,9 @@ function Header() {
       <div className={cx('inner')}>
         {/* Logo */}
 
-        <img src={images.logo} alt='Tik-tok' />
+        <Link to={routesConfig.home}>
+          <img className={cx('logo-link')} src={images.logo} alt='Tik-tok' />
+        </Link>
 
         {/* Search */}
         <Search />
@@ -129,9 +133,11 @@ function Header() {
               </Button>
             </>
           )}
+
           <Menu
             items={currentUser ? userMenu : MENU_ITEMS}
             onChange={handlerMenuChange}
+            hideOnClick={true}
           >
             {currentUser ? (
               <Image
