@@ -91,59 +91,62 @@ function Search() {
   };
 
   return (
-    <HeadlessTippy
-      visible={showResult && searchResult.length > 0}
-      interactive
-      render={(attrs) => (
-        <div className={cx('search-result')} tabIndex='-1' {...attrs}>
-          <PopperWrapper>
-            <h4 className={cx('search-title')}>Accounts</h4>
-            {searchResult !== '' &&
-              searchResult.map((result) => (
-                <AccountItems key={result.id} data={result} />
-              ))}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={handlerHideResult}
-    >
-      {/* search */}
-      <div className={cx('search')}>
-        <input
-          ref={searchInputRef}
-          value={searchValue}
-          placeholder='Search accounts and video'
-          spellCheck={false}
-          onFocus={() => setShowResult(true)}
-          // onKeyDown={(e) => {
-          //   if (searchValue.length === 0 && e.keyCode === 32) {
-          //     e.preventDefault();
-          //   }
-          // }}
-          onChange={handlerChangeInput}
-        />
+    <>
+      <HeadlessTippy
+        appendTo={() => document.body}
+        visible={showResult && searchResult.length > 0}
+        interactive
+        render={(attrs) => (
+          <div className={cx('search-result')} tabIndex='-1' {...attrs}>
+            <PopperWrapper>
+              <h4 className={cx('search-title')}>Accounts</h4>
+              {searchResult !== '' &&
+                searchResult.map((result) => (
+                  <AccountItems key={result.id} data={result} />
+                ))}
+            </PopperWrapper>
+          </div>
+        )}
+        onClickOutside={handlerHideResult}
+      >
+        {/* search */}
+        <div className={cx('search')}>
+          <input
+            ref={searchInputRef}
+            value={searchValue}
+            placeholder='Search accounts and video'
+            spellCheck={false}
+            onFocus={() => setShowResult(true)}
+            // onKeyDown={(e) => {
+            //   if (searchValue.length === 0 && e.keyCode === 32) {
+            //     e.preventDefault();
+            //   }
+            // }}
+            onChange={handlerChangeInput}
+          />
 
-        {!!searchValue && !loading && (
-          <button className={cx('clear')} onClick={handlerClearSearch}>
-            <FontAwesomeIcon icon={faCircleXmark} />
+          {!!searchValue && !loading && (
+            <button className={cx('clear')} onClick={handlerClearSearch}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          )}
+
+          {/* loading */}
+          {loading && (
+            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+          )}
+
+          <button
+            className={cx('search-btn')}
+            onMouseDown={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <FontAwesomeIcon icon={faSearch} />
           </button>
-        )}
-
-        {/* loading */}
-        {loading && (
-          <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-        )}
-
-        <button
-          className={cx('search-btn')}
-          onMouseDown={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
-      </div>
-    </HeadlessTippy>
+        </div>
+      </HeadlessTippy>
+    </>
   );
 }
 

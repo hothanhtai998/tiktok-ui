@@ -137,7 +137,7 @@ function Header() {
           <Menu
             items={currentUser ? userMenu : MENU_ITEMS}
             onChange={handlerMenuChange}
-            hideOnClick={true}
+            // hideOnClick={true}
           >
             {currentUser ? (
               <Image
