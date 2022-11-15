@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import styles from './AccountItems.module.scss';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import Image from '~/component/Image';
 import { Link } from 'react-router-dom';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+
+import styles from './AccountItems.module.scss';
+import Image from '~/component/Image';
 const cx = classNames.bind(styles);
 
 function AccountItems({ data }) {
@@ -22,5 +24,10 @@ function AccountItems({ data }) {
     </Link>
   );
 }
+
+//kiểm tra hợp lệ của props
+AccountItems.propTypes = {
+  data: PropTypes.object,
+};
 
 export default AccountItems;

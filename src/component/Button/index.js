@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
@@ -61,5 +62,9 @@ function Button({
     </Component>
   );
 }
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Button;
