@@ -31,8 +31,8 @@ import Button from '~/component/Button';
 //
 import Menu from '~/component/Popper/Menu';
 import Image from '~/component/Image';
-import Search from '~/component/Layout/Search';
-import routesConfig from '~/config/routes';
+import Search from '~/layouts/Search';
+import config from '~/config';
 
 const MENU_ITEMS = [
   {
@@ -109,7 +109,7 @@ function Header() {
       <div className={cx('inner')}>
         {/* Logo */}
 
-        <Link to={routesConfig.home}>
+        <Link to={config.routes.home}>
           <img className={cx('logo-link')} src={images.logo} alt='Tik-tok' />
         </Link>
 

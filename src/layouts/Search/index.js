@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // import * as request from '~/utils/request';
-import * as searchService from '~/apiServices/searchServices';
+import * as searchService from '~/services/searchService';
 import AccountItems from '~/component/AccountItems';
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
