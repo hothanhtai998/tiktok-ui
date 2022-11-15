@@ -26,6 +26,7 @@ function Menu({
   const renderItems = () => {
     return current.data.map((item, index) => {
       const isParent = !!item.children; //kiểm tra xem có phần tử con hay không
+
       return (
         <MenuItem
           key={index}
@@ -43,6 +44,15 @@ function Menu({
     });
   };
 
+  const handlerBack = () => {
+    setHistory((prev) => prev.slice(0, prev.length - 1));
+  };
+
+  // Reset To First Page
+  const handlerReset = () => {
+    setHistory((prev) => prev.slice(0, 1));
+  };
+
   return (
     <Tippy
       hideOnClick={hideOnClick}
@@ -54,21 +64,14 @@ function Menu({
         <div className={cx('menu-list')} tabIndex='-1' {...attrs}>
           <PopperWrapper>
             {history.length > 1 && (
-              <Header
-                title={current.title}
-                onBack={() => {
-                  setHistory((prev) => prev.slice(0, prev.length - 1));
-                }}
-              />
+              <Header title={current.title} onBack={handlerBack} />
             )}
             <div className={cx('menu-body')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}
       //set về trang 1 khi thoát hover từ trang 2
-      onHide={() => {
-        setHistory((prev) => prev.slice(0, 1));
-      }}
+      onHide={handlerReset}
     >
       {children}
     </Tippy>

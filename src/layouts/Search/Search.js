@@ -25,17 +25,17 @@ function Search() {
 
   const searchInputRef = useRef();
 
-  const debounced = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   useEffect(() => {
-    if (!debounced.trim()) return setSearchResult([]);
+    if (!debouncedValue.trim()) return setSearchResult([]);
     // encodeURIComponent: xử lý mã hoá
     setLoading(true);
 
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchService.searchApi(debounced);
+      const result = await searchService.searchApi(debouncedValue);
       setSearchResult(result);
 
       setLoading(false);
@@ -47,7 +47,7 @@ function Search() {
     //   try {
     //     const res = await request.get('users/search', {
     //       params: {
-    //         q: debounced,
+    //         q: debouncedValue,
     //         type: 'less',
     //       },
     //     });
@@ -64,7 +64,7 @@ function Search() {
     // request
     //   .get('users/search', {
     //     params: {
-    //       q: debounced,
+    //       q: debouncedValue,
     //       type: 'less',
     //     },
     //   })
@@ -73,7 +73,7 @@ function Search() {
     //     setLoading(false);
     //   })
     //   .catch(() => setLoading(false));
-  }, [debounced]);
+  }, [debouncedValue]);
 
   const handlerClearSearch = () => {
     setSearchValue('');
