@@ -11,6 +11,7 @@ import {
 import AccountItems from '~/component/AccountItems';
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -22,13 +23,15 @@ function Search() {
 
   const searchInputRef = useRef();
 
+  const debounced = useDebounce(searchValue, 500);
+
   useEffect(() => {
-    if (!searchValue.trim()) return setSearchResult([]);
+    if (!debounced.trim()) return setSearchResult([]);
     // encodeURIComponent: xử lý mã hoá
     setLoading(true);
     fetch(
       `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        searchValue
+        debounced
       )}&type=less`
     )
       .then((response) => response.json())
@@ -37,7 +40,7 @@ function Search() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [searchValue]);
+  }, [debounced]);
 
   const handlerClearSearch = () => {
     setSearchValue('');
