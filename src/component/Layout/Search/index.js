@@ -8,6 +8,8 @@ import {
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
+// import * as request from '~/utils/request';
+import * as searchService from '~/apiServices/searchServices';
 import AccountItems from '~/component/AccountItems';
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
@@ -29,17 +31,48 @@ function Search() {
     if (!debounced.trim()) return setSearchResult([]);
     // encodeURIComponent: xử lý mã hoá
     setLoading(true);
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounced
-      )}&type=less`
-    )
-      .then((response) => response.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+
+    const fetchApi = async () => {
+      setLoading(true);
+
+      const result = await searchService.searchApi(debounced);
+      setSearchResult(result);
+
+      setLoading(false);
+    };
+
+    fetchApi();
+    // //cách 1: gọi request dùng async / await
+    // const fetchApi = async () => {
+    //   try {
+    //     const res = await request.get('users/search', {
+    //       params: {
+    //         q: debounced,
+    //         type: 'less',
+    //       },
+    //     });
+    //     setSearchResult(res.data);
+    //     setLoading(false);
+    //   } catch (error) {
+    //     setLoading(false);
+    //   }
+    // };
+
+    // fetchApi();
+
+    //cách 2: gọi request bằng axios
+    // request
+    //   .get('users/search', {
+    //     params: {
+    //       q: debounced,
+    //       type: 'less',
+    //     },
+    //   })
+    //   .then((res) => {
+    //     setSearchResult(res.data);
+    //     setLoading(false);
+    //   })
+    //   .catch(() => setLoading(false));
   }, [debounced]);
 
   const handlerClearSearch = () => {
