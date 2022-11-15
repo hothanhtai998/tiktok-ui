@@ -27,7 +27,7 @@ function AccountItems({ data }) {
 
 //kiểm tra hợp lệ của props
 AccountItems.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object.isRequired,
 };
 
 export default AccountItems;
