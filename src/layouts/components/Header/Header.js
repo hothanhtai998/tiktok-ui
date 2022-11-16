@@ -22,14 +22,14 @@ import styles from './Header.module.scss';
 
 //import logo
 import images from '~/assets/images';
-import { UploadIcon } from '~/component/Icons';
+import { UploadIcon } from '~/components/Icons';
 
 // import Button
-import Button from '~/component/Button';
+import Button from '~/components/Button';
 
 //
-import Menu from '~/component/Popper/Menu';
-import Image from '~/component/Image';
+import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 import Search from '~/layouts/components/Search';
 import config from '~/config';
 

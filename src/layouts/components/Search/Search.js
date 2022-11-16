@@ -7,13 +7,13 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 // import * as request from '~/utils/request';
 import * as searchService from '~/services/searchService';
 
-import { SearchIcon } from '~/component/Icons';
+import { SearchIcon } from '~/components/Icons';
 
-import AccountItems from '~/component/AccountItems';
+import AccountItems from '~/components/AccountItems';
 
 import styles from './Search.module.scss';
 
-import { Wrapper as PopperWrapper } from '~/component/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);

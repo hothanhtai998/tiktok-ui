@@ -5,7 +5,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 import styles from './AccountItems.module.scss';
-import Image from '~/component/Image';
+import Image from '~/components/Image';
 const cx = classNames.bind(styles);
 
 function AccountItems({ data }) {
