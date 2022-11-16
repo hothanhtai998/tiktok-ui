@@ -7,12 +7,10 @@ import { Link } from 'react-router-dom';
 
 // import icon
 import {
-  faSignIn,
   faEllipsisVertical,
   faEarthAsia,
   faKeyboard,
   faCircleQuestion,
-  faCloudUpload,
   faUser,
   faCoins,
   faGear,
@@ -24,6 +22,7 @@ import styles from './Header.module.scss';
 
 //import logo
 import images from '~/assets/images';
+import { UploadIcon } from '~/component/Icons';
 
 // import Button
 import Button from '~/component/Button';
@@ -31,7 +30,7 @@ import Button from '~/component/Button';
 //
 import Menu from '~/component/Popper/Menu';
 import Image from '~/component/Image';
-import Search from '~/layouts/Search';
+import Search from '~/layouts/components/Search';
 import config from '~/config';
 
 const MENU_ITEMS = [
@@ -121,7 +120,7 @@ function Header() {
             <>
               <Tippy content='Upload video' placement='bottom' delay={[0, 200]}>
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faCloudUpload} />
+                  <UploadIcon />
                 </button>
               </Tippy>
             </>

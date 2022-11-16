@@ -2,16 +2,17 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
-import {
-  faCircleXmark,
-  faSearch,
-  faSpinner,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 // import * as request from '~/utils/request';
 import * as searchService from '~/services/searchService';
+
+import { SearchIcon } from '~/component/Icons';
+
 import AccountItems from '~/component/AccountItems';
+
 import styles from './Search.module.scss';
+
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import { useDebounce } from '~/hooks';
 
@@ -142,7 +143,7 @@ function Search() {
               e.preventDefault();
             }}
           >
-            <FontAwesomeIcon icon={faSearch} />
+            <SearchIcon />
           </button>
         </div>
       </HeadlessTippy>
